@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Script to check Netlify deployment status
+echo "Checking deployment status..."
+
+# Check if index.html exists
+if [ -f "index.html" ]; then
+    echo "✅ index.html found"
+    echo "File size: $(ls -lh index.html | awk '{print $5}')"
+else
+    echo "❌ index.html not found in current directory"
+    echo "Files in current directory:"
+    ls -la
+fi
+
+# Check git status
+echo "Git status:"
+git status
+
+# Check remote
+echo "Remote repository:"
+git remote -v
